@@ -6,11 +6,10 @@
 // A result's `multiplier` is the TOTAL returned for the stake: 0 = stake lost,
 // 1 = stake refunded, 2 = stake doubled, and so on. The bet is taken before the
 // round and `payoutFor(bet, multiplier)` is paid back after it.
-import { randomInt } from 'node:crypto';
 
 /** @typedef {(max: number) => number} Rng */
 /** @type {Rng} */
-export const defaultRng = (max) => randomInt(max);
+export const defaultRng = (max) => Math.floor(Math.random() * max);
 
 /** Total coins paid back for a stake at a multiplier (rounded down). */
 export function payoutFor(bet, multiplier) {
